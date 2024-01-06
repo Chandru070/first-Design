@@ -1,0 +1,1021 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap,https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Oswald:wght@500&family=Russo+One&display=swap,https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap,https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-color: #FFCC00;
+  --text-color: #fff;
+  --main-color: #000;
+  --white-color: #fdfdfd;
+  --shadow-color:rgba(128, 128, 128, 0.329);
+  --header-color-- :rgb(57, 57, 57);
+  
+}
+
+*::selection {
+  background: var(--bg-color);
+  color: var(--main-color);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;    
+  background: #000;
+  overflow-x: hidden;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+ul{
+  list-style:none;
+  display:flex;
+}
+
+/* header menu */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 0;
+  padding: 2rem 7%;
+  background: transparent;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  z-index: 100;
+  transition: .5s;
+}
+
+.header .sticky{
+  background: var(--header-color--);
+  box-shadow: 0.1rem 1rem var(--shadow-color);
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-right: auto;
+  background: linear-gradient(
+  to right,#8d99ae,#8d99ae 35%,#fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s linear infinite;
+}
+
+
+.navbar a {
+  position: relative;
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-right: 3.5rem;
+}
+
+
+
+.navbar a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: .2rem;
+  background: var(--bg-color);
+}
+
+.slider{
+  width: 1300px;
+  max-width: 100vw;
+  height: 400px;
+  margin-top: -5%;
+  position:static;
+  overflow: hidden;
+}
+.list{
+  position: absolute;
+  top: -50px;
+  left: 0;
+  height: 100%;
+  display: flex;
+  width: max-content;
+}
+.list img{
+  width: 1500px;
+  max-width:100vw;
+  height: 100%;
+  margin: 50px 0 0 0;
+  object-position: 50% 50%;
+}
+.list .p-one{
+  position: absolute;
+  justify-content: center;
+  margin: -380px 350px ;
+  color: #fff;
+  font-family: 'khand';
+  font-size: 3rem;
+  font-weight: Bold 600;
+  background:linear-gradient(
+    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.list .p-two{
+  position: absolute;
+  justify-content: center;
+  margin: -280px 140px ;
+  color: #fff;
+  font-family: 'khand';
+  font-size: 3rem;
+  font-weight: Bold 600;
+  background:linear-gradient(
+    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
+  background-size: 700% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list .p-three{
+  position: absolute;
+  justify-content: center;
+  margin: -370px 970px ;
+  color: #fff;
+  font-family: 'khand';
+  font-size: 3rem;
+  font-weight: Bold 600;
+  background:linear-gradient(
+    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list .p-four{
+  position: absolute;
+  justify-content: center;
+  margin: -390px 100px ;
+  color: #fff;
+  font-family: 'khand';
+  font-size: 3rem;
+  font-weight: Bold 600;
+  background:linear-gradient(
+    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.buttons{
+  position: absolute;
+  top: 45%;
+  left: 1%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons button{
+  border: solid 2px #fff;
+  width:50px;
+  height:50px;
+  border-radius: 100%;
+  border-color: transparent;
+  background-color:transparent;
+  color: #fff;
+}
+.buttons #prev{
+  margin: 0 50px 0 0;
+}
+
+.dots{
+  position: absolute;
+  bottom: -10px;
+  color: #fff;
+  left: 0;
+  width: 100%;
+  margin:  0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.dots li{
+  list-style: none;
+  width: 15px;
+  height: 10px;
+  background-color: #fff;
+  margin:20px;
+  border-radius: 20px;
+  transition: 1s;
+}
+
+.active{
+  
+}
+
+/* categories */
+
+.seven{
+  
+  color: #fff;
+  margin-top: 35% ;
+}
+.c-head{
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 3.6rem;
+  font-weight: Bold 700;
+  margin-bottom: .3rem;
+}
+
+.li-categories ol{
+  margin: 10px 0 0 0;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  
+}
+.li-categories li {
+    height: 65vh;
+    display: flex;
+    width: 1000px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 0 50px 0 65px;   
+}
+
+
+.li-categories a{
+  font-weight:lighter;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  padding-top: 350px;
+}
+
+.li-categories{
+  margin: 40px;
+}
+.li-categories li:nth-child(-n + 3){
+  margin:0 50px 0 0;
+}
+
+.eguitar{
+  background-image: url(https://wallpapercave.com/wp/wp2779164.jpg);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.audio{
+  background-image:url(https://cdn.rekkerd.org/wp-content/uploads/2019/01/TASCAM-SERIES-USB-audio-interfaces.jpg);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  
+}
+
+.speakers{
+  background-image: url(https://wallpapercave.com/wp/wp4094575.jpg);
+  background-position-x:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.edrum{
+  background-image: url(https://wallpaperaccess.com/full/3844027.jpg);
+  background-position-x:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.eguitar,.audio,.speakers,.edrum{
+  box-shadow: 0 .1rem .5rem var(--main-color);
+  transition: transform .5s ease;
+}
+
+.eguitar:hover{
+border: solid 1px rgba(128, 128, 128, 0.235);
+transform: scale(1.1);
+}
+.audio:hover{
+border: solid 1px rgba(128, 128, 128, 0.235);
+transform: scale(1.1);
+}
+.speakers:hover{
+border: solid 1px rgba(128, 128, 128, 0.235);
+transform: scale(1.1);
+}
+.edrum:hover {
+border: solid 1px rgba(128, 128, 128, 0.235);
+transform: scale(1.1);
+}
+
+.banners{
+  margin: 200px 0 0 0;
+  height: 65vh;
+}
+
+.fb{
+  width: 60%;
+  height: 65vh;
+  background-image: url(https://c.pxhere.com/photos/1b/4b/guitar_music_band_instrument_musician_rock_guitarist_musical-558617.jpg!d);
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  
+}
+.fb h3{
+  font-family: 'Oswald', sans-serif;
+  font-weight:Regular 400;
+  font-size:46px;  
+  color: #008CD7;
+  text-align:left;
+  padding: 275px 0 0 30px ;
+  
+}
+.fb p{
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+}
+
+.tb{
+    width: 39.3%;
+    height: 65vh;
+    margin: -31.32% 0 0 60.7%;
+    background-image: url(https://i.pinimg.com/originals/b7/97/a2/b797a2715a4792160a4a54072a41b93e.jpg);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+#eight{
+  margin:100px 0 30px 0 ;
+  color: #fff;
+}
+
+.icons ol {
+    margin: 30px 30px 30px 30px;
+    padding: 25px;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid#fff;
+    border-radius: 10px;
+}
+.icons li {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  padding:0 0 0 155px;
+}
+.icons i{
+    letter-spacing: 2px;
+}
+.icons .ri-phone-fill{
+    letter-spacing: 9px;
+}
+.announce{
+  color: #fff;
+  margin: 120px 30px 30px 30px;
+}
+.news{
+  height: 16vw;
+  margin: 80px 0 0 0;
+}
+.news p{
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;  
+}
+.announce a{
+  color: #ffffffa2;
+  
+}
+.announce a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.announce h2{
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: Bold 700;
+  font-size: 3.6rem;
+  margin: 0 0 0 43%;
+  padding:0 ;
+}
+.latest{
+  font-family: 'khand';
+  font-size: 2rem;
+  margin: 60px 0 0 0;
+  padding: 0 0 0 20px
+}
+hr{
+  border: solid 2px #ffcc0011;
+  margin-top: 50px;
+}
+.announce h3{
+  font-family: 'Khand', sans-serif;
+  font-size: 1.4rem;
+  font-weight: Medium 200;
+  letter-spacing: 0;
+  margin: -170px 40px 0 320px;
+  padding: 0 0 0 30px;
+  
+}
+
+.news img {
+  width: 250px;
+  height: 170px;
+  margin: 22px 0 0 20px;
+  
+}
+.news p{
+  margin: 30px 40px 0 320px;
+  padding: 0 0 0 30px;
+  
+}
+
+.brand{
+  margin: 2% 0 4% 39%;
+  color: #fff;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 3.6rem;
+  font-weight: Regular 400;
+  
+}
+
+/* brand sliders */
+
+.flex-container {
+  position: absolute;
+  height: 90vh;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.flex-title {
+  color: #f1f1f1;
+  position: relative;
+  font-size: 6vw;
+  margin: auto;
+  text-align: center;
+  transform: rotate(90deg);
+  top: 35%;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+
+.flex-slide {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-slide {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .flex-slide ul li {
+    font-size: 2em;
+  }
+}
+
+.flex-slide:hover {
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+
+.flex-title-yamaha{
+  font-family: 'Khand', sans-serif;
+}
+
+
+.yamaha {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+@media screen and (min-width: 768px) {
+  .yamaha {
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes aboutFlexSlide {
+  0% {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  50% {
+    -webkit-flex-grow: 3;
+    flex-grow: 3;
+  }
+  100% {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .flex-title-yamaha {
+    top: 30%;
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+
+.pearl {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i5.walmartimages.com/asr/57465627-8186-43de-bd42-0c4a8a990c6e_3.1f5d02cf9b00e13bb9f8ee1b3dcfe319.jpeg);
+  background-size: cover;
+  background-position:  center;
+  background-attachment: fixed;
+}
+
+
+.sony {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+/*contact form */
+
+.contact {
+  margin: 60% 0 0 0;
+}
+
+.contact h2 {
+  margin: 2% 0 4% 39%;
+  color: #fff;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 3.6rem;
+  font-weight: Regular 400;
+}
+
+.contact form {
+  max-width: 70rem;
+  margin: 1rem auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: .8rem;
+  color: var(--text-color);
+  background: var(--shadow-color);
+  border-radius: .8rem;
+  border: solid 1px var(--text-color);
+  margin: .7rem ;
+}
+
+
+.contact form .input-box input {
+  width: 49%;
+}
+
+.contact form textarea {
+  resize: none;
+}
+
+.contact form .btn {
+  width: 15%;
+  height: 8vh;
+  background:var(--main-color);
+  color: var(--text-color);
+  font-weight: Medium 500;
+  border-radius: .5rem;
+  border: solid 1px #fff;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.contact form .btn:hover{
+  background:var(--bg-color);
+  color: var(--main-color);
+  border: solid 1px #000;
+}
+
+.contact .btn{
+  font-size: 1rem;
+}
+/* index footer */
+.im-footer{
+  border: solid 1px var(--bg-color);
+  width: 100%;
+  height: 14vw;
+  margin: 50% 0 0 0;
+  background-color: rgba(128, 128, 128, 0.151);;
+}
+.footer-text{
+  width: 100%;
+  margin: 20px 0 0 0;
+  padding: 0 0 0 5px;
+  font-size: 1rem;
+  color: var(--white-color);
+}
+.footer-text p {
+    padding-left: 22px;
+}
+
+.iconTop a {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: #000;
+    border-radius: .8rem;
+    outline: .2rem solid #fff;  
+}
+
+.footer-iconTop a:hover {
+    outline-color: var(--bg-color);
+}
+
+.footer-iconTop a i {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+
+.f-icons{
+  margin: 20px 0 0 0;
+  padding: 0 0 0 560px;
+  
+}
+.f-icons a {
+  font-size: 35px;
+  margin: 10px 0 0 20px;
+  padding: 5px 5px 0 5px;
+  border-radius: 5px;
+}
+
+.f-icons a:hover{
+  box-shadow: 0 .1rem .5rem var(--bg-color);
+}
+  /* footer */
+.m-footer{
+  border: solid 1px var(--bg-color);
+  width: 100%;
+  height: 14vw;
+  margin-left: -2px;
+  background-color: rgba(128, 128, 128, 0.151);;
+}
+.footer-text{
+  width: 100%;
+  margin: 20px 0 0 0;
+  padding: 0 0 0 5px;
+  font-size: 1rem;
+  color: var(--white-color);
+}
+.footer-text p {
+    padding-left: 22px;
+}
+.footer-iconTop{
+  margin: -5% 0 0 94%;
+
+}
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: #000;
+    border-radius: .8rem;
+    outline: .2rem solid #fff;  
+}
+
+.footer-iconTop a:hover {
+    outline-color: var(--bg-color);
+}
+
+.footer-iconTop a i {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+
+.f-icons{
+  margin: 20px 0 0 0;
+  padding: 0 0 0 560px;
+  
+}
+.f-icons a {
+  font-size: 35px;
+  margin: 10px 0 0 20px;
+  padding: 5px 5px 0 5px;
+  border-radius: 5px;
+}
+
+.f-icons a:hover{
+  box-shadow: 0 .1rem .5rem var(--bg-color);
+}
+
+/* news1.html */
+.yamaha-1{
+  margin: 100px 0 0 0;
+  color: #fff;
+}
+.yamaha-1 img{
+  width: 90%;
+  height: 40vw;
+  margin: 0 0 0 68px;
+  
+}
+.yamaha-1  p{
+  font-family: 'Poppins', sans-serif;  
+  margin: 30px 0 10px 0;
+  padding: 0 60px 0 70px;
+}
+.yamaha-1 h2{
+  padding: 0 0 40px 70px;
+  font-family: 'Khand', sans-serif;
+  font-size: x-large;
+
+}
+/* news2.html */
+.yamaha-1 .harry{
+  width: 65%;
+  height: 40vw;
+  margin: 50px 0 0 240px;
+  border: solid 1px grey;
+}
+
+/*news4.html */
+.yamaha-1 .show-c{
+  width: 25%;
+  height: 20vw;
+  margin: 50px 30px 70px 68px ;
+ 
+}
+.p-div{
+  margin: -25% 0 10% 27%;
+  padding: 0 0 0 0;
+  
+}
+
+.b-images {
+    background-color: rgba(128, 128, 128, 0.323);
+    padding: 25px ;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+.b-images ol{
+  list-style: none;
+  text-align: center;
+  display: flex;
+}
+.b-images li{
+  height: 10vh;
+  display: flex;
+  width: 100px;
+  margin: 0 0 0 110px;
+  padding: 0 40px 0 40px ;  
+  
+}
+.b-images a:hover{
+  text-decoration: dashed;
+  text-decoration-color: #fff;
+}
+#yam{
+  background-image: url(https://media-exp1.licdn.com/dms/image/C4E05AQFAhMLlRSA_Uw/videocover-high/0/1666602248874?e=2147483647&v=beta&t=qyHTysu_rk_a4AvyDRH5Xx0DVl8XBJor5Rnrw0tc3DQ);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+#son{
+  background-image: url(http://www.trutower.com/wp-content/uploads/2012/12/Sony-logo-1.jpg);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+#boss{
+  background-image: url(https://tse3.mm.bing.net/th?id=OIP.hHYxZeUx4RIiq_foVJXhOAHaHa&pid=Api&P=0&h=180);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+#pearl{
+  background-image: url(http://www.dafont.com/forum/attach/orig/1/4/14781.jpg);
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width:320px) {
+  body{
+    overflow-x: hidden;
+  }
+  
+  .header .logo{
+    visibility: hidden;
+    font-size: .3cm;
+    margin: -4% 0 0 -86px;
+  }
+  
+  .navbar{
+    display: flex;
+    margin: -3% 90% 0 -1%; 
+    
+  }
+  .navbar a{
+    font-size: .178cm; 
+  }
+  .slider .list{
+    width: 100%;
+    height: 53vh;
+  }
+  .slider .list .item p{
+    font-size: .3cm;
+    
+  }
+  .buttons{
+    margin-top: -45%;
+  }
+  .dots{
+    visibility: hidden;
+  }
+
+.seven .c-head{
+    margin: -40% 0 0 5%;
+    font-size: .6cm;
+  }
+.li-categories li{
+    display:flow-root;
+    justify-content:space-around;
+    height: 30vh;
+    width: 0;
+    font-size: .150cm;
+    aspect-ratio: 0.5;
+  }
+.li-categories li a{
+  margin-top: 3%;
+}  
+ .banners{
+  height: 20vh;
+  width: 100%;
+ }
+ .banners .fb {
+  height: 40vh;
+  width: 50%;
+  margin:-30% 0;
+ }
+ .banners .fb h3{
+  visibility: hidden;
+  font-size: .3cm;
+ }
+ .banners .tb{
+  margin: -57.8% 0 0 50%;
+  height: 30vh;
+  width:60%;
+ }
+#eight{
+  margin:180px 0 30px -9% ;
+  
+}
+.icons ol {
+  width: 75%;
+  height: 2vh;
+  font-size: .2cm;
+  
+}
+.icons li{
+  padding-left: 4%;
+}
+
+.announce h2 {
+  font-size: .6cm;
+  margin: -60px 0 0 75px;
+}
+.announce p{
+  font-size: .5cm;
+  margin: 50px 0 0 -40px;
+}
+.announce hr{
+  width: 115%;
+  margin: 0 0 0 -8% ;
+}
+.announce .news img{
+  width: 50%;
+  height: 15vh;
+  margin:-30px 0 0 60px;
+}
+.announce .news h3{
+  font-size: .4cm;
+  margin: 20px 0 0 -25px;
+}
+.announce .news p{
+  font-size: .3cm;
+  margin: 15px 0 0 -25px;
+}
+.announce .newsp2 img{
+  margin: 170px 0 0 60px;
+}
+.announce .newsp3 img{
+  margin: 430px 0 0 60px;
+}
+.announce .newsp4 img{
+  margin: 660px 0 0 60px;
+}
+.brand{
+  font-size: .6cm;
+  margin:1000px 0 0 30%;
+}
+.yamaha {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+}
+.pearl {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
+  background-size: contain;
+  background-position:left;
+  background-attachment: fixed;
+}
+
+
+.sony {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+}
+.im-footer{
+  margin: 750px 0 0 0;
+  width: 99.6%;
+  height: 20vh;
+  
+}
+.im-footer .footer-text p{
+  margin: 80px 0 0 0;
+}
+.footer-iconTop {
+  margin: -220px 0 0 150px;
+  
+}
+.footer-iconTop i{
+  margin: -30px -30px;
+ 
+}
+
+
+}
+
+
