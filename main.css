@@ -26,12 +26,49 @@ html{
 }
 
 body {
-  width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;    
+  width: 100%;
+  overflow-x: hidden;  
   background: #000;
-  overflow-x: hidden;
+  color: #fdfdfd;  
+}
+
+.circle{
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  aspect-ratio: 1/1;
+  background: #fff;
+  box-shadow: 0 0 10px #fff,
+  0 0 20px #fff,
+  0 0 30px #fff,
+  0 0 50px #fff;
+  border-radius: 50%;
+  animation: animate 5s linear forwards;
+}
+
+@keyframes animate{
+  0%{
+      transform: translateY(0);
+  }
+  50%{
+      opacity: 1;
+  }
+  100%{
+      transform: translatey(-100vh);
+      opacity: 0;
+  }
+}
+
+.circle ::before{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  width: 50%;
+  height: 100vh;
+  opacity: 0.5s;
+background: linear-gradient (#fff, transparent);
 }
 
 a{
@@ -136,50 +173,7 @@ ul{
     -webkit-text-fill-color: transparent;
 }
 
-.list .p-two{
-  position: absolute;
-  justify-content: center;
-  margin: -280px 140px ;
-  color: #fff;
-  font-family: 'khand';
-  font-size: 3rem;
-  font-weight: Bold 600;
-  background:linear-gradient(
-    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
-  background-size: 700% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
-.list .p-three{
-  position: absolute;
-  justify-content: center;
-  margin: -370px 970px ;
-  color: #fff;
-  font-family: 'khand';
-  font-size: 3rem;
-  font-weight: Bold 600;
-  background:linear-gradient(
-    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.list .p-four{
-  position: absolute;
-  justify-content: center;
-  margin: -390px 100px ;
-  color: #fff;
-  font-family: 'khand';
-  font-size: 3rem;
-  font-weight: Bold 600;
-  background:linear-gradient(
-    to right,rgba(128, 128, 128, 0.766),#ffffffa7 35%,rgba(128, 128, 128, 0.121));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 
 .buttons{
@@ -231,14 +225,7 @@ ul{
   color: #fff;
   margin-top: 35% ;
 }
-.c-head{
-  font-family: 'Archivo Black', sans-serif;
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 3.6rem;
-  font-weight: Bold 700;
-  margin-bottom: .3rem;
-}
+
 
 .li-categories ol{
   margin: 10px 0 0 0;
@@ -247,6 +234,7 @@ ul{
   display: flex;
   
 }
+
 .li-categories li {
     height: 65vh;
     display: flex;
@@ -264,8 +252,23 @@ ul{
   color: #fff;
   letter-spacing: 2px;
   padding-top: 350px;
+  
+}
+.li-categories #text{
+    opacity: 0;
+    transition: .5s ease;
 }
 
+.li-categories #text:hover{
+  background: transparent;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+.eguitar,.audio,.speakers,.edrum{
+  box-shadow: 0 .1rem .5rem var(--main-color);
+  transition: transform .5s ease;
+}
 .li-categories{
   margin: 40px;
 }
@@ -302,25 +305,24 @@ ul{
   background-repeat: no-repeat;
 }
 
-.eguitar,.audio,.speakers,.edrum{
-  box-shadow: 0 .1rem .5rem var(--main-color);
-  transition: transform .5s ease;
-}
-
 .eguitar:hover{
 border: solid 1px rgba(128, 128, 128, 0.235);
+border-radius: 5px;
 transform: scale(1.1);
 }
 .audio:hover{
 border: solid 1px rgba(128, 128, 128, 0.235);
+border-radius: 5px;
 transform: scale(1.1);
 }
 .speakers:hover{
 border: solid 1px rgba(128, 128, 128, 0.235);
+border-radius: 5px;
 transform: scale(1.1);
 }
 .edrum:hover {
 border: solid 1px rgba(128, 128, 128, 0.235);
+border-radius: 10px;
 transform: scale(1.1);
 }
 
@@ -372,23 +374,34 @@ transform: scale(1.1);
     margin: 30px 30px 30px 30px;
     padding: 25px;
     list-style: none;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    border: 3px solid#fff;
-    border-radius: 10px;
+    display: flex;   
+    animation: scroll 40s linear infinite;
+    width: calc(-250px * 9);
 }
-.icons li {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-  padding:0 0 0 155px;
+.icons ol :hover{
+  animation-play-state: paused;
 }
-.icons i{
-    letter-spacing: 2px;
+.icons img{
+  height: 13vh;
+  width: 200px;
+  padding: 0 40px 0 40px ; 
+  transition: transform .5s ease;
 }
-.icons .ri-phone-fill{
-    letter-spacing: 9px;
+
+.icons img:hover{
+  border: solid 1px rgba(128, 128, 128, 0.235);
+  transform: scale(1.1);
 }
+
+@keyframes scroll{ 
+  0%{
+    transform: translatex(0);
+  }
+  100%{
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
 .announce{
   color: #fff;
   margin: 120px 30px 30px 30px;
@@ -402,11 +415,10 @@ transform: scale(1.1);
   font-family: 'Poppins', sans-serif;  
 }
 .announce a{
-  color: #ffffffa2;
-  
+  color: #fff; 
 }
 .announce a:hover{
-  color: #fff;
+  color: #ffffffa2;
   text-decoration: none;
 }
 .announce h2{
@@ -444,8 +456,7 @@ hr{
 }
 .news p{
   margin: 30px 40px 0 320px;
-  padding: 0 0 0 30px;
-  
+  padding: 0 0 0 30px; 
 }
 
 .brand{
@@ -576,75 +587,9 @@ hr{
   background-position: center center;
   background-attachment: fixed;
 }
-/*contact form */
-
-.contact {
-  margin: 60% 0 0 0;
-}
-
-.contact h2 {
-  margin: 2% 0 4% 39%;
-  color: #fff;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 3.6rem;
-  font-weight: Regular 400;
-}
-
-.contact form {
-  max-width: 70rem;
-  margin: 1rem auto;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.contact form .input-box {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
-.contact form .input-box input,
-.contact form textarea {
-  width: 100%;
-  padding: 1.5rem;
-  font-size: .8rem;
-  color: var(--text-color);
-  background: var(--shadow-color);
-  border-radius: .8rem;
-  border: solid 1px var(--text-color);
-  margin: .7rem ;
-}
 
 
-.contact form .input-box input {
-  width: 49%;
-}
 
-.contact form textarea {
-  resize: none;
-}
-
-.contact form .btn {
-  width: 15%;
-  height: 8vh;
-  background:var(--main-color);
-  color: var(--text-color);
-  font-weight: Medium 500;
-  border-radius: .5rem;
-  border: solid 1px #fff;
-  margin-top: 2rem;
-  cursor: pointer;
-}
-
-.contact form .btn:hover{
-  background:var(--bg-color);
-  color: var(--main-color);
-  border: solid 1px #000;
-}
-
-.contact .btn{
-  font-size: 1rem;
-}
 /* index footer */
 .im-footer{
   border: solid 1px var(--bg-color);
@@ -693,7 +638,7 @@ hr{
   font-size: 35px;
   margin: 10px 0 0 20px;
   padding: 5px 5px 0 5px;
-  border-radius: 5px;
+  border-radius: 100px;
 }
 
 .f-icons a:hover{
@@ -854,958 +799,7 @@ hr{
 }
 
 
-/*@media (max-width:1536px){
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
 
 
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-}
-
-@media (max-width:1280px){
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
-
-
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-}
-
-@media(max-width:1024px){
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
-
-
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-}
-@media (max-width:768px){
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
-
-
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-}
-
-@media (max-width:640px){
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
-
-
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-}
-@media (max-width:475px) {
-  body{
-    overflow-x: hidden;
-  }
-  
-  .header .logo{
-    visibility: hidden;
-    font-size: .3cm;
-    margin: -4% 0 0 -86px;
-  }
-  
-  .navbar{
-    display: flex;
-    margin: -3% 90% 0 -1%; 
-    
-  }
-  .navbar a{
-    font-size: .178cm; 
-  }
-  .slider .list{
-    width: 100%;
-    height: 53vh;
-  }
-  .slider .list .item p{
-    font-size: .3cm;
-    
-  }
-  .buttons{
-    margin-top: -45%;
-  }
-  .dots{
-    visibility: hidden;
-  }
-
-.seven .c-head{
-    margin: -40% 0 0 5%;
-    font-size: .6cm;
-  }
-.li-categories li{
-    display:flow-root;
-    justify-content:space-around;
-    height: 30vh;
-    width: 0;
-    font-size: .150cm;
-    aspect-ratio: 0.5;
-  }
-.li-categories li a{
-  margin-top: 3%;
-}  
- .banners{
-  height: 20vh;
-  width: 100%;
- }
- .banners .fb {
-  height: 40vh;
-  width: 50%;
-  margin:-30% 0;
- }
- .banners .fb h3{
-  visibility: hidden;
-  font-size: .3cm;
- }
- .banners .tb{
-  margin: -57.8% 0 0 50%;
-  height: 30vh;
-  width:60%;
- }
-#eight{
-  margin:180px 0 30px -9% ;
-  
-}
-.icons ol {
-  width: 75%;
-  height: 2vh;
-  font-size: .2cm;
-  
-}
-.icons li{
-  padding-left: 4%;
-}
-
-.announce h2 {
-  font-size: .6cm;
-  margin: -60px 0 0 75px;
-}
-.announce p{
-  font-size: .5cm;
-  margin: 50px 0 0 -40px;
-}
-.announce hr{
-  width: 115%;
-  margin: 0 0 0 -8% ;
-}
-.announce .news img{
-  width: 50%;
-  height: 15vh;
-  margin:-30px 0 0 60px;
-}
-.announce .news h3{
-  font-size: .4cm;
-  margin: 20px 0 0 -25px;
-}
-.announce .news p{
-  font-size: .3cm;
-  margin: 15px 0 0 -25px;
-}
-.announce .newsp2 img{
-  margin: 170px 0 0 60px;
-}
-.announce .newsp3 img{
-  margin: 430px 0 0 60px;
-}
-.announce .newsp4 img{
-  margin: 660px 0 0 60px;
-}
-.brand{
-  font-size: .6cm;
-  margin:1000px 0 0 30%;
-}
-.yamaha {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.iset.io/assets/53334/produtos/3584/yamaha_genos_3.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.pearl {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d1aeri3ty3izns.cloudfront.net/media/12/124787/1200/preview.jpg);
-  background-size: contain;
-  background-position:left;
-  background-attachment: fixed;
-}
-
-
-.sony {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.sitejabber.com/img/categories/1129/picture.1410272755.jpg);
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-}
-.im-footer{
-  margin: 750px 0 0 0;
-  width: 99.6%;
-  height: 20vh;
-  
-}
-.im-footer .footer-text p{
-  margin: 80px 0 0 0;
-}
-.footer-iconTop {
-  margin: -220px 0 0 150px;
-  
-}
-.footer-iconTop i{
-  margin: -30px -30px;
- 
-}
-
-
-}
 
 
