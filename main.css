@@ -746,7 +746,7 @@ hr{
 }
 
 .b-images {
-    background-color: rgba(128, 128, 128, 0.323);
+    background:tarnsparent;
     padding: 25px ;
     list-style: none;
     text-align: center;
