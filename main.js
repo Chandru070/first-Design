@@ -1,3 +1,5 @@
+
+
 // logo 
 
 var logo = document.querySelector('.logo,#logo')
@@ -33,6 +35,8 @@ window.onscroll = () => {
 let header = document.querySelector('.header');
 
 header.classList.toggle('sticky', window.scrollY > 100);
+
+
 
 // slider 
 
@@ -112,6 +116,22 @@ link4.addEventListener("click",(event)=>{
 })
 
 
+const linked = document.querySelector('link-in')
+linked.addEventListener('click', function(event) {
+    event.preventDefault();
+    var url = event.target.href;
+    window.open(url, '_blank');
+    
+})
+
+
+const git = document.querySelector('git-hub')
+linked.addEventListener("click",function(event) {
+    event.preventDefault();
+    var url = event.target.href;
+    window.open(url, '_blank');
+    
+})
 
 
 // swiper //
@@ -123,18 +143,8 @@ const swiper = new Swiper('.swiper', {
 
 
 
-// scroll reveal //
 
-ScrollReveal({
-    reset:false,
-    delay:200,
-    distance:'80px',
-    duration:2000
-})
-ScrollReveal().reveal('.c-head,.announce h2,.brand ,.latest,.icons',{origin:'top'})
-ScrollReveal().reveal('.flex-title,.news,.icons li,.li-categories',{origin:'bottom'})
-ScrollReveal().reveal('.li-categories li',{interval:20})
-ScrollReveal().reveal('.fb,#label,.form',{origin:'left'})
-ScrollReveal().reveal('.tb,.news p,.c-heading',{origin:'right'})
+
+
 
 
