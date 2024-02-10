@@ -126,7 +126,7 @@ linked.addEventListener('click', function(event) {
 
 
 const git = document.querySelector('git-hub')
-linked.addEventListener("click",function(event) {
+git.addEventListener("click",function(event) {
     event.preventDefault();
     var url = event.target.href;
     window.open(url, '_blank');
